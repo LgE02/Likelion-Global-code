@@ -3,9 +3,7 @@ package com.hansung.likelion.global.response.code;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import static com.hansung.likelion.global.constant.StaticValue.CREATED;
-import static com.hansung.likelion.global.constant.StaticValue.OK;
-
+import static com.hansung.likelion.global.constant.StaticValue.*;
 /**
  * 공통 성공 응답 코드
  */
