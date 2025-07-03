@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 //전역 예외 처리 클래스 지정 + JSON 응답 반환
 @RestControllerAdvice //예외 잡기
@@ -81,8 +82,8 @@ public class GlobalExceptionHandler {
     }
 
     //정적 리소스조차 찾지 못했을 때 발생
-    @ExceptionHandler(NoHandlerFoundException.class)
-    public ResponseEntity<ErrorResponse<?>> handleNoHandlerFoundException(Exception e) {
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<ErrorResponse<?>> handleNoResourceFoundException(Exception e) {
         log.error("NoHandlerFoundException : {}", e.getMessage(),e);
         ErrorResponse<?> errorResponse = ErrorResponse.from(ErrorResponseCode.NOT_FOUND_ENDPOINT);
         return ResponseEntity.status(errorResponse.getHttpStatus()).body(errorResponse);
