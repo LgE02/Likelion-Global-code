@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @ToString
 //해당 클래스가 JSON으로 변환될때 필드가 나열된 순서대로 강제 출력
-@JsonPropertyOrder({"isSuccess", "timestamp", "code", "httpStatus","messgae","data"})
+@JsonPropertyOrder({"isSuccess", "timestamp", "code", "httpStatus","message","data"})
 public class ErrorResponse<T> extends BaseResponse {
     private final int httpStatus;
     private final T data;
